@@ -1,4 +1,4 @@
-{% extends "Main.html" %}
+{% extends "Home_Main.html" %}
 {% load static %}
 
 {% block content %}
@@ -7,56 +7,52 @@
     <main>
       <div class="card-basic">
         <div class="card-header header-basic">
-          <h1>Basic</h1>
+          <h1>I am a Buyer</h1>
         </div>
         <div class="card-body">
-          <p><h2>$5 / mo</h2></p>
+          <p><h2>Buyer</h2></p>
           <div class="card-element-hidden-basic">
             <ul class="card-element-container">
-              <li class="card-element">2 team members</li>
-              <li class="card-element">2GB storage</li>
-              <li class="card-element">1000 request per day</li>
-              <li class="card-element">20000 users</li>
+              <li class="card-element">Buy Product At Best Price with high level transparency</li>
             </ul>
-            <button class="btn btn-basic">Order now</button>
+                <button class="btn btn-basic" onclick="new_user('buyer')" id="buyer">Get Started</button>
           </div>
         </div>
       </div>
       
       <div class="card-standard">
         <div class="card-header header-standard">
-          <h1>Standard</h1>
+          <h1>I want to be a seller</h1>
         </div>
         <div class="card-body">
-          <p><h2>$10 / mo</h2></p>
+          <p><h2>Seller</h2></p>
           <div class="card-element-hidden-standard">
-            <ul class="card-element-container">
-              <li class="card-element">5 team members</li>
-              <li class="card-element">5GB storage</li>
-              <li class="card-element">2000 request per day</li>
-              <li class="card-element">40000 users</li>
-            </ul>
-            <button class="btn btn-standard">Order now</button>
+            <p class="card-element-container">
+              <h6 class="card-element">You can sell your product here at Best Price.</h6>
+            </p>
+                <button class="btn btn-standard" onclick="new_user('seller')" id="sellerr">Get Started</button>
           </div>
         </div>
       </div>
       <div class="card-premium">
         <div class="card-header header-premium">
-          <h1>Premium</h1>
+          <h1>I want to be a Verifier</h1>
         </div>
         <div class="card-body">
-          <p><h2>$20 / mo</h2></p>
+          <p><h2>Verifier</h2></p>
           <div class="card-element-hidden-premium">
             <ul class="card-element-container">
-              <li class="card-element">Unlimited team members</li>
-              <li class="card-element">10GB storage</li>
-              <li class="card-element">5000 request per day</li>
-              <li class="card-element">Unlimited users</li>
+              <li class="card-element">Help Us in verification and get paid</li>
             </ul>
-            <button class="btn btn-premium">Order now</button>
+            <button class="btn btn-premium" onclick="new_user('verifier')" id="verifier">Get Started</button>
           </div>
         </div>
       </div>
     </main>
   </body>
+  {% csrf_token %}
+  <script>
+      var csrftoken = '{{ csrf_token }}';
+  </script>
+  <script type="text/javascript" src="{% static 'js/Verified_User.js' %}"></script>
 {% endblock content %}

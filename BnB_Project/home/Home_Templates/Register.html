@@ -1,4 +1,4 @@
-{% extends 'Main.html' %}
+{% extends 'Home_Main.html' %}
 {% load widget_tweaks %}
 {% load static %}
 <!DOCTYPE html>
@@ -16,7 +16,7 @@
                 <h1 class="text-3xl font-semibold text-gray-900">Sign in</h1>
                 <p class="mt-2 text-gray-500">Sign in below to access your account</p>
             </div>
-            <form action="{% url 'RegisterPage' %}" method="post">
+            <form action="{% url 'Home_RegisterPage' %}" method="post">
                 {% csrf_token %}
                 <div class="relative mt-6">
                     {% render_field form.First_Name placeholder='First Name' type='text' class='form-control peer mt-1 w-full border-b-2 border-gray-300 px-0 py-1 focus:border-gray-500 focus:outline-none' required=True %}
@@ -165,7 +165,7 @@
                     </button>
                 </div>
                 <p class="text-center text-sm text-gray-500">Already have an account?
-                    <a href="{% url 'LoginPage' %}"
+                    <a href="{% url 'Home_LoginPage' %}"
                        class="font-semibold text-gray-600 hover:underline focus:text-gray-800 focus:outline-none">Login</a>.
                 </p>
             </form>
