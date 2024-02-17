@@ -61,7 +61,7 @@ ROOT_URLCONF = 'BnB_Project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'home/Home_Templates', BASE_DIR / 'seller/Sellers_Templates'],
+        'DIRS': [BASE_DIR / 'home/Home_Templates', BASE_DIR / 'seller/Sellers_Templates',],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
