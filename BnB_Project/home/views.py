@@ -163,11 +163,9 @@ def userchoice(request):
                 new_seller = Seller_Profile(First_Name=customer.First_Name, Last_Name=customer.Last_Name, Email=customer.Email, Is_Email_Verified=customer.Is_Email_Verified, Phone_Number=customer.Phone_Number, Is_Phone_Number_Verified=customer.Is_Phone_Number_Verified, Password=customer.Password)
                 new_seller.save()
                 request.session['seller_id'] = new_seller.id
-                customer.delete()
                 del request.session['customer_id']
             else:
                 request.session['seller_id'] = Seller_Profile.objects.get(Email=customer.Email).id
-                customer.delete()
                 del request.session['customer_id']
             return JsonResponse({'status': 'success', 'message': 'REDIRECTING TO SELLER PAGE'})
         elif user_type == 'verifier':
