@@ -1,0 +1,133 @@
+.content-wrapper {
+    display: flex;
+    max-width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    border: 2px solid lightslategray;
+    margin: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.column {
+    max-width: 100%;
+    width: 600px;
+    padding: 10px;
+    text-align: center;
+}
+
+#featured {
+    max-width: 100%;
+    max-height: 100vh;
+    height: auto;
+    object-fit: cover;
+    border-radius: 55px;
+    margin: auto;
+}
+
+.thumbnail {
+    object-fit: cover;
+    max-width: 180px;
+    max-height: 100px;
+    cursor: pointer;
+    opacity: 0.5;
+    margin: 5px auto;
+    border: 2px solid black;
+}
+
+.thumbnail:hover {
+    opacity: 1;
+}
+
+.active {
+    opacity: 1;
+}
+
+#slide-wrapper {
+    max-width: 500px;
+    display: flex;
+    min-height: 100px;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#slider {
+    width: 440px;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: hidden;
+}
+
+.arrow {
+    cursor: pointer;
+    transition: .3s;
+    margin: 5px;
+}
+
+.arrow:hover {
+    transform: scale(1.1);
+    opacity: .5;
+}
+
+@media (max-width: 1278px) {
+    .info {
+        border-top: 2px solid darkgray;
+    }
+
+    .head {
+        display: none;
+    }
+}
+
+.head {
+    position: relative;
+    bottom: 40px;
+    Font-size: 30px;
+    font-family: "CATIA Symbols";
+}
+
+.button-wrapper {
+    margin-top: 10px;
+    margin-left: 6%;
+    margin-right: 6%;
+}
+
+.cart-btn {
+    float: left;
+}
+
+.tag-wrapper {
+    float: left;
+
+}
+
+.detail-wrapper {
+    border-top: 1px solid grey;
+
+    margin-top: 15px;
+}
+
+table {
+    border-collapse: separate !important;
+    border-spacing: 0;
+    width: 600px;
+    margin: 30px;
+}
+
+.bordered {
+    border: solid #ccc 1px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    -webkit-box-shadow: 0 1px 1px #ccc;
+    -moz-box-shadow: 0 1px 1px #ccc;
+    box-shadow: 0 1px 1px #ccc;
+}
+
+
+.f_name{
+    text-align: left;
+}
