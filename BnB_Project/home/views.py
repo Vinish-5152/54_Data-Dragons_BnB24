@@ -4,7 +4,8 @@ from django.shortcuts import render, redirect
 from .utils import *
 from .forms import SignUpForm, LoginForm
 from .models import *
-
+from django.contrib.auth import authenticate,login,logout
+from django.contrib import messages
 
 # Create your views here.
 
@@ -18,26 +19,51 @@ def login(request):
         }
         return render(request, 'Login.html', data)
     if request.method == 'POST':
-        form = LoginForm(request.POST)
-        if form.is_valid():
-            email = form.cleaned_data['Email']
-            password = form.cleaned_data['Password']
-            customer = Customer.objects.filter(Email=email).first()
-            if customer:
-                valid = check_password(password, customer.Password)
-                if valid:
-                    return redirect('HomePage')
-                else:
-                    form.add_error('Password', 'PASSWORD IS INCORRECT')
-            else:
-                form.add_error('Email', 'EMAIL DOES NOT EXISTS')
-            return render(request, 'Login.html', {'form': form})
+        useremail=request.POST['Email']
+        userpassword=request.POST['Password']
+        myuser=authenticate(request,email=useremail, password=userpassword)
+        print(myuser)
+        print(useremail,userpassword)
+        if myuser is not None:
+            login(request, myuser)
+            messages.success(request, "Login Success")
+            return redirect('/home')
         else:
-            data = {
-                'form': form,
-            }
-            return render(request, 'Login.html', data)
+            messages.error(request, "Invalid Credentials")
+            return redirect('/logi')
+    return render(request, "Login.html")
+    #     if form.is_valid():
+    #         email = form.cleaned_data['Email']
+    #         password = form.cleaned_data['Password']
+    #         customer = Customer.objects.filter(Email=email).first()
+    #         if customer:
+    #             valid = check_password(password, customer.Password)
+    #             if valid:
+    #                 return redirect('HomePage')
+    #             else:
+    #                 form.add_error('Password', 'PASSWORD IS INCORRECT')
+    #         else:
+    #             form.add_error('Email', 'EMAIL DOES NOT EXISTS')
+    #         return render(request, 'Login.html', {'form': form})
+    #     else:
+    #         data = {
+    #             'form': form,
+    #         }
+    #         return render(request, 'Login.html', data)
 
+    
+    # if request.method=="POST":
+    #     username=request.POST['Email']
+    #     userpassword=request.POST['pass1']
+    #     myuser=authenticate(username=username, password=userpassword)
+    #     if myuser is not None:
+    #         login(request, myuser)
+    #         messages.success(request, "Login Success")
+    #         return redirect('/')
+    #     else:
+    #         messages.error(request, "Invalid Credentials")
+    #         return redirect('/auth/login')
+    # return render(request, "authentication/login.html")
 
 def register(request):
     if request.method == 'GET':
@@ -141,3 +167,25 @@ def register_otp_sms_verifier(request):
 
 def userchoice(request):
     return render(request, 'Verified_User.html')
+
+
+
+def handlelogin(request):
+    if request.method=="POST":
+        username=request.POST['Email']
+        userpassword=request.POST['pass1']
+        myuser=authenticate(username=username, password=userpassword)
+        if myuser is not None:
+            login(request, myuser)
+            messages.success(request, "Login Success")
+            return redirect('/')
+        else:
+            messages.error(request, "Invalid Credentials")
+            return redirect('/auth/login')
+    return render(request, "authentication/login.html")
+
+
+def handlelogout(request):
+    logout(request)
+    messages.info(request,'Logout Success')
+    return redirect("/auth/login")

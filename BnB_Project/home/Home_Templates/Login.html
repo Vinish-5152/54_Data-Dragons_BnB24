@@ -1,4 +1,4 @@
-{% extends 'Main.html' %}
+{% extends 'Home_Main.html' %}
 {% load widget_tweaks %}
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +18,7 @@
             <form action="{% url 'LoginPage' %}" method="post">
                 {% csrf_token %}
                 <div class="relative mt-6">
-                    {% render_field form.Email placeholder='Email' type='email' class='form-control peer mt-1 w-full border-b-2 border-gray-300 px-0 py-1 focus:border-gray-500 focus:outline-none' required=True %}
+                    {% render_field form.Email placeholder='name' type='email' class='form-control peer mt-1 w-full border-b-2 border-gray-300 px-0 py-1 focus:border-gray-500 focus:outline-none' required=True %}
                     <div class="alert alert-danger">
                         {% if form.errors %}
                             {% for error in form.Email.errors %}

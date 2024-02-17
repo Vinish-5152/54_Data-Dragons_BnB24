@@ -1,0 +1,29 @@
+{% extends "Seller_Main.html" %}
+{% block content %}
+<form action="add_product/" method="post">
+    {% csrf_token %}
+    <label for="name">Name</label>
+    <input id="name" type="text" name="name" value="">
+
+    <label for="desc">Description</label>
+    <input id="desc" type="text" name="desc" value="">
+
+    <label for="quantity">Quantity</label>
+    <input id="quantity" type="number" name="quantity" value="">
+
+    <label for="price">Price</label>
+    <input id="price" type="number" name="price" value="">
+
+    {% comment %} <select class="form-control mb-4" name="category">
+        <option selected disabled>Select Category</option>
+
+        {% for cat in p_category %}
+        <option value="{{cat.id}}">{{cat.name}}</option>
+        {% endfor %}
+
+    </select> {% endcomment %}
+
+    <!--    {{ form }} -->
+    <input type="submit" value="Submit">
+</form>
+{% endblock content %}
