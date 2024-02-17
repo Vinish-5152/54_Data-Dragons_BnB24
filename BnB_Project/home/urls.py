@@ -26,4 +26,5 @@ urlpatterns = [
     path('register/verify_otp_via_email/', register_otp_verifier, name='verify_otp_via_email'),
     path('register/send_otp_via_sms/', register_otp_sms_sender, name='send_otp_via_sms'),
     path('register/verify_otp_via_sms/', register_otp_sms_verifier, name='verify_otp_via_sms'),
+    path('user/', userchoice, name='UserPage'),
 ]

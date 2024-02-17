@@ -137,3 +137,7 @@ def register_otp_sms_verifier(request):
             return JsonResponse({'status': 'error', 'message': 'PHONE NUMBER OR OTP PARAMETER IS MISSING'})
     else:
         return JsonResponse({'status': 'error', 'message': 'INVALID REQUEST METHOD'})
+
+
+def userchoice(request):
+    return render(request, 'Verified_User.html')
