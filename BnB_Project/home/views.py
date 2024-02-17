@@ -66,7 +66,7 @@ def register(request):
                 del request.session['ph_number_otp']
             except KeyError:
                 pass
-            return redirect('LoginPage')
+            return redirect('Home_LoginPage')
         else:
             data = {
                 'form': form,
