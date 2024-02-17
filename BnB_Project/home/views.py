@@ -209,23 +209,3 @@ def userchoice(request):
     return render(request, 'Verified_User.html')
 
 
-
-def handlelogin(request):
-    if request.method=="POST":
-        username=request.POST['Email']
-        userpassword=request.POST['pass1']
-        myuser=authenticate(username=username, password=userpassword)
-        if myuser is not None:
-            login(request, myuser)
-            messages.success(request, "Login Success")
-            return redirect('/')
-        else:
-            messages.error(request, "Invalid Credentials")
-            return redirect('/auth/login')
-    return render(request, "authentication/login.html")
-
-
-def handlelogout(request):
-    logout(request)
-    messages.info(request,'Logout Success')
-    return redirect("/auth/login")
