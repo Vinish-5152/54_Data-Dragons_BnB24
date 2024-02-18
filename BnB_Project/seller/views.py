@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, HttpResponse
 from .models import *
+from .forms import *
 
 # Create your views here.
 
@@ -7,10 +8,21 @@ def home(request):
     return render(request, 'Seller_Home.html')
 
 def product(request):
-    return render(request,'Product.html')
+    return render(request,'Seller_Product.html')
 
 def add_product(request):
-    p_category = Category.objects.all()
+    if request.method == 'GET':
+        data = {
+            'form': AddProductForm(),
+        }
+        return render(request, 'Seller_Product.html', data)
+
+    if request.method == 'POST':
+        form = AddProductForm(request.POST)
+        if form.is_valid():
+            pass
+
+    '''p_category = Category.objects.all()
     if request.method == 'POST':
         name = request.POST['name']
         # category = Category.objects.get(id = request.POST['category'])
@@ -34,3 +46,4 @@ def add_product(request):
         form = add_product(request)
 
     return render(request, 'product/add_product.html', {'form': form, 'p_category':p_category})
+'''

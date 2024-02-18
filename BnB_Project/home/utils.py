@@ -23,7 +23,7 @@ class Email_OTP:
             # Use self._generate_otp instead of _generate_otp
             self.generate_otp()
             print(self.otp)
-            subject = 'Hoop-Art: Your Otp Verification Code'
+            subject = 'ClearTrade: Your Otp Verification Code'
             message = f'''
 Your Otp Verification: {self.otp}
 '''
@@ -80,7 +80,7 @@ class Phone_Number_OTP:
 
     def send_otp_via_sms(self, phone_number):
         self.generate_otp()
-        url = f'https://2factor.in/API/V1/{self.__api}/SMS/+91{phone_number}/{self.otp}/Hoop-Art'
+        url = f'https://2factor.in/API/V1/{self.__api}/SMS/+91{phone_number}/{self.otp}/ClearTrade'
         response = requests.get(url)
         data = response.json()
 

@@ -6,6 +6,9 @@ from .models import *
 class ProductAdmin(admin.ModelAdmin):
     list_display = ["Name"]
 
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ["Name"]
 
 @admin.register(Seller_Profile)
 class SellerProfileAdmin(admin.ModelAdmin):

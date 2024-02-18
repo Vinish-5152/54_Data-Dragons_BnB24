@@ -10,7 +10,7 @@ class Customer(models.Model):
     Phone_Number = models.CharField(max_length=10)
     Is_Phone_Number_Verified = models.BooleanField(default=False)
     Password = models.CharField(max_length=175)
-    Address = models.TextField(null=False, blank=False)
+    User_Type = models.CharField(max_length=10, default='Customer', choices=(('Customer', 'Customer'), ('Seller', 'Seller'), ('Verifier', 'Verifier')))
 
     def __str__(self):
         if self.Last_Name:
