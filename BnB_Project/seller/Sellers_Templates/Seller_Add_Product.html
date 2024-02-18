@@ -1,0 +1,32 @@
+{% extends 'Seller_Main.html' %}
+{% load widget_tweaks %}
+{% load static %}
+
+{% block content %}
+<div class="relative mx-auto w-full max-w-md bg-white px-6 pt-10 pb-8 mt-4 shadow-xl ring-1 ring-gray-900/5 sm:rounded-xl sm:px-10">
+    <div class="w-full">
+        <div class="text-center">
+            <h1 class="text-3xl font-semibold text-gray-900">Add</h1>
+            <p class="mt-2 text-gray-500">Add Your Product</p>
+        </div>
+        <form action="{% url 'Seller_add_product' %}" method="POST">
+            {% csrf_token %}
+            <div class="mt-6">
+                {% render_field form.Name placeholder='Product Name' type='text' class='form-control peer mt-1 w-full border-b-2 border-gray-300 px-0 py-1 focus:border-gray-500 focus:outline-none' required=True %}
+            </div>
+            <div class="mt-6">
+                    {% render_field form.Price placeholder='Product Price' id='Product Price' type='num' class='form-control peer mt-1 w-full border-b-2 border-gray-300 px-0 py-1 focus:border-gray-500 focus:outline-none' required=True %}
+            </div>
+            <div class="mt-6">
+                {% render_field form.Quantity placeholder='Product Quantity' type='tel' class='form-control peer mt-1 w-full border-b-2 border-gray-300 px-0 py-1 focus:border-gray-500 focus:outline-none' required=True %}
+            </div>
+            <div class="mt-6">
+                {% render_field form.Description placeholder='Product Description' type='text' class='form-control peer mt-1 w-full border-b-2 border-gray-300 px-0 py-1 focus:border-gray-500 focus:outline-none' required=True %}
+            </div>
+            <div class="mt-6">
+                {% render_field form.Image placeholder='Product Image' type='file' class='form-control peer mt-1 w-full border-b-2 border-gray-300 px-0 py-1 focus:border-gray-500 focus:outline-none' required=True %}
+            <button type="submit" class="w-full py-2 mt-6 font-medium text-white uppercase bg-gray-900 rounded-full shadow-lg">Submit My Product</button>
+        </form>
+    </div>
+</div
+{% endblock %}

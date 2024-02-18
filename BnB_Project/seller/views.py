@@ -12,15 +12,13 @@ def product(request):
 
 def add_product(request):
     if request.method == 'GET':
-        data = {
-            'form': AddProductForm(),
-        }
-        return render(request, 'Seller_Product.html', data)
-
+        form = AddProductForm()
     if request.method == 'POST':
         form = AddProductForm(request.POST)
         if form.is_valid():
             pass
+    
+    return render(request, 'Seller_Add_Product.html', {'form': form})
 
     '''p_category = Category.objects.all()
     if request.method == 'POST':

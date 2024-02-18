@@ -36,6 +36,7 @@ class Product(models.Model):
     Product_Verified_By = models.ForeignKey(Verifier_Profile, on_delete=models.CASCADE, default=1)
     Quantity = models.IntegerField(null=False, blank=False)
     Description = models.TextField(null=False, blank=False)
+    Image = models.ImageField(upload_to='Seller/unverified Images', null=True, blank=True)
 
     def _str_(self):
         return self.Name
